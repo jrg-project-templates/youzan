@@ -1,9 +1,9 @@
 let url = {
-  hotList: 'index/hotLists'
+  hotList: 'index/hotlists'
 }
 
 // host = ''
-let host = 'http://rap2api.taobao.org/app/mock/7058/'
+let host = 'https://easy-mock.com/mock/5bd7072a541c73692857acb7/youzan/'
 
 for(let key in url){
   if(url.hasOwnProperty(key)){

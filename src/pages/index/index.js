@@ -3,6 +3,9 @@ import './index.css'
 import url from 'js/api.js'
 import axios from 'axios'
 import Vue from 'vue'
+import { InfiniteScroll } from 'mint-ui';
+
+Vue.use(InfiniteScroll);
 
 Vue.config.productionTip = false;
 
@@ -11,14 +14,40 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   data: {
-    lists: null
+    lists: null,
+    pageNum: 1,
+    pageSize: 6,
+    loading: false,
+    allLoaded: false
   },
   created(){
-    axios.get(url.hotList,{
-      pageNum: 1,
-      pageSize: 4
-    }).then(res => {
-      this.lists = res.data.lists;
-    })
+    this.getLists();
+  },
+  methods: {
+    getLists(){
+        if(this.allLoaded) return;
+
+        console.log(1);
+
+        this.loading = true;
+        axios.get(url.hotList,{
+          pageNum: this.pageNum,
+          pageSize: this.pageSize
+        }).then(res => {
+          let currentLists = res.data.lists;
+
+          console.log(currentLists.length < this.pageSize)
+          this.allLoaded =  currentLists.length < this.pageSize;
+
+          if(this.pageNum === 1){
+            this.lists = currentLists;
+          }else {
+            this.lists = this.lists.concat(currentLists);
+          }
+          this.pageNum++;
+          this.loading = false;
+        })
+    }
   }
+
 })

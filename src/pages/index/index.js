@@ -3,6 +3,7 @@ import './index.css'
 import url from 'js/api.js'
 import axios from 'axios'
 import Vue from 'vue'
+import Foot from 'components/Foot.vue'
 import { InfiniteScroll } from 'mint-ui';
 
 Vue.use(InfiniteScroll);
@@ -27,8 +28,6 @@ new Vue({
     getLists(){
         if(this.allLoaded) return;
 
-        console.log(1);
-
         this.loading = true;
         axios.get(url.hotList,{
           pageNum: this.pageNum,
@@ -48,6 +47,9 @@ new Vue({
           this.loading = false;
         })
     }
+  },
+  components: {
+    Foot
   }
 
 })

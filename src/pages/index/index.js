@@ -4,6 +4,7 @@ import url from 'js/api.js'
 import axios from 'axios'
 import Vue from 'vue'
 import Foot from 'components/Foot.vue'
+import Swiper from 'components/Swiper.vue'
 import { InfiniteScroll } from 'mint-ui';
 
 Vue.use(InfiniteScroll);
@@ -49,7 +50,8 @@ new Vue({
     }
   },
   components: {
-    Foot
+    Foot,
+    Swiper
   }
 
 })

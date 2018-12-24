@@ -1,6 +1,9 @@
 let url = {
   hotList: 'index/hotlists',
-  bannerList: 'index/banner'
+  bannerList: 'index/banner',
+  topList: 'category/topList',
+  subList: 'category/subList',
+  rank: 'category/rank'
 }
 
 // host = ''

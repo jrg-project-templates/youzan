@@ -15,9 +15,6 @@ new Vue({
     subData: null,
     rankData: null
   },
-  components: {
-    Foot
-  },
   created(){
     this.getTopList();
     this.getSubList(0);
@@ -35,7 +32,7 @@ new Vue({
       if(index === 0 ){
         this.getRank();
       }else {
-        axios.get(url.subList,id).then(res=>{
+        axios.get(url.subList,{id}).then(res=>{
           this.subData = res.data.data;
           console.log(this.subData)
         }).catch(res=>{
@@ -50,5 +47,8 @@ new Vue({
         console.log('获取综合排行失败！');
       })
     }
+  },
+  components: {
+    Foot
   }
 })

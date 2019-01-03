@@ -5,7 +5,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-import Foot from 'components/Foot.vue'
+import mixin from 'js/mixin.js';
 
 new Vue({
   el: '#app',
@@ -46,9 +46,10 @@ new Vue({
       }).catch(res=>{
         console.log('获取综合排行失败！');
       })
+    },
+    goToSearch(list){
+      location.href = `search.html?keyword=${list.name}&id=${list.id}`;
     }
   },
-  components: {
-    Foot
-  }
+  mixins: [mixin]
 })

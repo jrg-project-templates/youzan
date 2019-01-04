@@ -7,7 +7,7 @@
         :key="list.id" >
         <a>
           <i :class="list.icon"></i>
-          <div>有赞</div>
+          <div>{{list.name}}</div>
         </a>
       </li>
     </ul>

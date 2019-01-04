@@ -5,7 +5,7 @@ import url from 'js/api.js'
 import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
-import Foot from 'components/Foot.vue'
+import Velocity from 'velocity-animate'
 import { InfiniteScroll } from 'mint-ui';
 
 Vue.use(InfiniteScroll);
@@ -23,6 +23,7 @@ new Vue({
     loadingAll: false,
     pageNum: 1,
     pageSize: 8,
+    timeOutId: 0
   },
   created(){
     this.getSearchList();
@@ -49,7 +50,25 @@ new Vue({
           
           this.pageNum++;
           this.loading = false;
+      }).catch(res=>{
+        // this.loading = false;
       })
+    },
+    moveHandle(){
+      if(document.documentElement.scrollTop > 100) {
+        this.show = true;
+      }else {
+        this.show = false;
+      }
+    },
+    goToTop(){
+      let _this = this;
+      Velocity(document.body,"scroll",{
+        duration: 1000,
+        complete(){
+          _this.show = false;
+        }
+      });
     }
   }
 })

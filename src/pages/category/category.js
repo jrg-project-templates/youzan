@@ -11,7 +11,7 @@ new Vue({
   el: '#app',
   data: {
     topLists: null,
-    topIndex: 0,
+    topIndex: null,
     subData: null,
     rankData: null
   },
@@ -28,13 +28,12 @@ new Vue({
       })
     },
     getSubList(index,id){
-      this.topIndex = index;
       if(index === 0 ){
         this.getRank();
       }else {
         axios.get(url.subList,{id}).then(res=>{
+          this.topIndex = index;
           this.subData = res.data.data;
-          console.log(this.subData)
         }).catch(res=>{
           console.log('获取二级目录失败！');
         })
@@ -43,6 +42,7 @@ new Vue({
     getRank(){
       axios.get(url.rank).then(res=>{
         this.rankData = res.data.data;
+        this.topIndex = 0;
       }).catch(res=>{
         console.log('获取综合排行失败！');
       })

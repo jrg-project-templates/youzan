@@ -5,6 +5,7 @@ import url from 'js/api.js'
 import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
+import mixin from 'js/mixin.js'
 import Velocity from 'velocity-animate'
 import { InfiniteScroll } from 'mint-ui';
 
@@ -14,7 +15,7 @@ Vue.config.productionTip = false;
 let {keyword,id} = qs.parse(location.search.slice(1));
 
 new Vue({
-  el: '#search',
+  el: '#app',
   data: {
     keyword,
     searchList: null,
@@ -70,5 +71,6 @@ new Vue({
         }
       });
     }
-  }
+  },
+  mixins: [mixin]
 })

@@ -392,13 +392,13 @@ hr.left-10 {
 only screen and (min--moz-device-pixel-ratio:1.5),
 only screen and (min-device-pixel-ratio:1.5) {
   .loading {
-    background-image: url(/v2/image/loader@2x.gif)!important
+    background-image: url(https://b.yzcdn.cn/v2/image/loader@2x.gif)!important
   }
 }
 
 .with-bs-bottom,
 .with-bs-top {
-  background: url(/v2/image/wap/bottom_line.png) 0 0 no-repeat;
+  background: url(https://b.yzcdn.cn/v2/image/wap/bottom_line.png) 0 0 no-repeat;
   background-size: 100% 1px
 }
 
@@ -474,7 +474,7 @@ only screen and (min-device-pixel-ratio:1.5) {
   padding: 50px 0 20px;
   margin: 0 15px;
   font-size: 12px;
-  background: url(/v2/image/wap/common/logo@2x.png) no-repeat center 20px;
+  background: url(https://b.yzcdn.cn/v2/image/wap/common/logo@2x.png) no-repeat center 20px;
   background-size: 73px 24px
 }
 
@@ -484,7 +484,7 @@ only screen and (min-device-pixel-ratio:1.5) {
 
 .copyright .pf-copyright {
   display: block;
-  background: url(/v2/image/pf/ui/copyright.png) no-repeat center 20px;
+  background: url(https://b.yzcdn.cn/v2/image/pf/ui/copyright.png) no-repeat center 20px;
   background-size: 73px 24px
 }
 
@@ -705,7 +705,7 @@ only screen and (min-device-pixel-ratio:1.5) {
   position: absolute;
   top: 2px;
   right: 15px;
-  background: url(/v2/image/wap/guide_arrow.png) 0 0 no-repeat;
+  background: url(https://b.yzcdn.cn/v2/image/wap/guide_arrow.png) 0 0 no-repeat;
   width: 47px;
   height: 44px
 }
@@ -764,13 +764,13 @@ only screen and (min-device-pixel-ratio:1.5) {
 .follow-guide .step-2 {
   margin-bottom: 10px;
   height: 64px;
-  background: url(/v2/image/wap/step_2.png) no-repeat
+  background: url(https://b.yzcdn.cn/v2/image/wap/step_2.png) no-repeat
 }
 
 .follow-guide .step-3 {
   margin-top: 10px;
   height: 68px;
-  background: url(/v2/image/wap/step_3.png) no-repeat
+  background: url(https://b.yzcdn.cn/v2/image/wap/step_3.png) no-repeat
 }
 
 .follow-guide .quick-subscribe {
@@ -800,27 +800,27 @@ only screen and (min-device-pixel-ratio:1.5) {
 
 .fuck-taobao .step-1 {
   height: 29px;
-  background: url(/v2/image/wap/step_1.png) no-repeat
+  background: url(https://b.yzcdn.cn/v2/image/wap/step_1.png) no-repeat
 }
 
 .fuck-taobao .step-2 {
   height: 86px;
-  background: url(/v2/image/wap/ftios_step_2.png) no-repeat
+  background: url(https://b.yzcdn.cn/v2/image/wap/ftios_step_2.png) no-repeat
 }
 
 .fuck-taobao .step-and-2 {
   height: 62px;
-  background: url(/v2/image/wap/ftand_step_2.png) no-repeat
+  background: url(https://b.yzcdn.cn/v2/image/wap/ftand_step_2.png) no-repeat
 }
 
 .fav-guide .step-1 {
   height: 29px;
-  background: url(/v2/image/wap/step_1.png) no-repeat
+  background: url(https://b.yzcdn.cn/v2/image/wap/step_1.png) no-repeat
 }
 
 .fav-guide .step-2 {
   height: 86px;
-  background: url(/v2/image/wap/fav_step_2.png) no-repeat
+  background: url(https://b.yzcdn.cn/v2/image/wap/fav_step_2.png) no-repeat
 }
 
 @media only screen and (-o-min-device-pixel-ratio:3/2),
@@ -828,43 +828,43 @@ only screen and (-webkit-min-device-pixel-ratio:1.5),
 only screen and (min--moz-device-pixel-ratio:1.5),
 only screen and (min-device-pixel-ratio:1.5) {
   .fullscreen-guide .guide-arrow {
-    background-image: url(/v2/image/wap/guide_arrow@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/guide_arrow@2x.png);
     background-size: 47px 44px
   }
   .follow-guide .step-2 {
-    background-image: url(/v2/image/wap/step_2@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/step_2@2x.png);
     background-size: 260px 64px
   }
   .follow-guide .step-3 {
-    background-image: url(/v2/image/wap/step_3@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/step_3@2x.png);
     background-size: 260px 68px
   }
   .fuck-taobao .step-1 {
-    background-image: url(/v2/image/wap/step_1@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/step_1@2x.png);
     background-size: 260px 29px
   }
   .fuck-taobao .step-2 {
-    background-image: url(/v2/image/wap/ftios_step_2@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/ftios_step_2@2x.png);
     background-size: 248px 86px
   }
   .fuck-taobao .step-and-2 {
-    background-image: url(/v2/image/wap/ftand_step_2@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/ftand_step_2@2x.png);
     background-size: 260px 62px
   }
   .fav-guide .step-1 {
-    background-image: url(/v2/image/wap/step_1@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/step_1@2x.png);
     background-size: 260px 29px
   }
   .fav-guide .step-2 {
-    background-image: url(/v2/image/wap/fav_step_2@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/fav_step_2@2x.png);
     background-size: 260px 86px
   }
   .share-guide .step-1 {
-    background-image: url(/v2/image/wap/step_1@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/step_1@2x.png);
     background-size: 260px 29px
   }
   .share-guide .step-2 {
-    background-image: url(/v2/image/wap/share_step_2@2x.png);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/share_step_2@2x.png);
     background-size: 260px 86px
   }
 }
@@ -875,4 +875,3 @@ html {
   font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Tohoma, Arial
 }
 
- 

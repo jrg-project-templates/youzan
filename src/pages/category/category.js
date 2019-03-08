@@ -13,15 +13,18 @@ new Vue({
     topLists: null,
     topIndex: null,
     subData: null,
-    rankData: null
+    rankData: null,
+    loading: true
   },
   created(){
-    this.getTopList();
-    this.getSubList(0);
+    Promise.all([this.getTopList(),this.getSubList(0)]).then(res=>{
+      // this.loading = false;
+    });
+    ;
   },
   methods: {
     getTopList(){
-      axios.get(url.topList).then(res=>{
+      return axios.get(url.topList).then(res=>{
         this.topLists = res.data.data.lists;
       }).catch(res=>{
         console.log('获取一级目录失败！');
@@ -29,9 +32,9 @@ new Vue({
     },
     getSubList(index,id){
       if(index === 0 ){
-        this.getRank();
+        return this.getRank();
       }else {
-        axios.get(url.subList,{id}).then(res=>{
+        return axios.get(url.subList,{id}).then(res=>{
           this.topIndex = index;
           this.subData = res.data.data;
         }).catch(res=>{
@@ -40,7 +43,7 @@ new Vue({
       }
     },
     getRank(){
-      axios.get(url.rank).then(res=>{
+      return axios.get(url.rank).then(res=>{
         this.rankData = res.data.data;
         this.topIndex = 0;
       }).catch(res=>{

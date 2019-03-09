@@ -7,7 +7,11 @@ let url = {
   searchList: 'search/list',
   goodsDetails: 'goods/details',
   cartAdd: 'cart/add',
-  cartList: 'cart/cartList'
+  cartList: 'cart/cartList',
+  cartIncrease: 'cart/increase',
+  cartReduce: 'cart/reduce',
+  cartRemove: 'cart/remove',
+  cratMoreRemove: 'cart/moreRemove'
 }
 
 // let host = 'http://rap2api.taobao.org/app/mock/7058'

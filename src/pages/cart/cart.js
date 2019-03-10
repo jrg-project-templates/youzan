@@ -3,6 +3,7 @@ import './cart_trade.css'
 import './cart.css'
 
 import Vue from 'vue'
+import Velocity from 'velocity-animate'
 
 import Cart from './cartServer.js'
 import mixin from 'js/mixin.js'
@@ -42,6 +43,18 @@ var app = new Vue({
         })
         this.cartList = cartList;
       })
+    },
+    touchStart(e,goods){
+      goods.start = e.changedTouches[0].clientX;
+    },
+    touchEnd(e,shopIndex,goods,goodsIndex){
+      let end = e.changedTouches[0].clientX;
+      if(goods.start - end > 100){
+        Velocity(this.$refs[`goods-${shopIndex}-${goodsIndex}`],{left: -60})
+      }
+      if(goods.start - end < -100) {
+        Velocity(this.$refs[`goods-${shopIndex}-${goodsIndex}`],{left: 0});
+      }
     },
     checkNumber(goods,number){
       if(typeof number !== 'number'){
@@ -107,6 +120,7 @@ var app = new Vue({
       }
     },
     removeGoods(shop,shopIndex,goods,goodsIndex){ 
+      this.removeAllStatus = false;
       this.removePopup = true;
       this.removeData = {shop,shopIndex,goods,goodsIndex};
       this.removeMsg = `确定要删除该商品？`;

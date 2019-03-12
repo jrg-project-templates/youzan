@@ -158,7 +158,6 @@ var app = new Vue({
       }
       this.removePopup = false;
       this.removeData = null;
-      console.log('success');
     },
     removeShop(shopIndex){
       this.cartList.splice(shopIndex,1);

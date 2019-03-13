@@ -83,8 +83,7 @@
   </div>
 </template>
 
-
-<style scope>
+<style>
   @import './member_base.css';
-  @import './member.css'
+  @import './member.css';
 </style>

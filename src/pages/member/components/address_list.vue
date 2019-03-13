@@ -17,10 +17,6 @@
     </div>
   </div>
 </template>
-<style scope>
-@import './address_base.css';
-@import './address.css';
-</style>
 <script>
 export default {
   methods:{

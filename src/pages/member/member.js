@@ -1,6 +1,3 @@
-import './components/member_base.css'
-import './components/member.css'
-
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 

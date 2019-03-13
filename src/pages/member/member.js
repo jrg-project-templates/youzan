@@ -17,9 +17,11 @@ var routes = [{
   component: address,
   children: [{
     path: '',
+    name: 'all',
     component: address_list
   },{
-    path: '/address_form',
+    path: '/address_form/:type',
+    name: 'form',
     component: require('./components/address_form.vue').default
   }]
 }]

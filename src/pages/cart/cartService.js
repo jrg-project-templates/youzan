@@ -28,7 +28,7 @@ class Cart {
   }
 
   static moreRemove(goodsArr){
-    return fetch.post(url.cratMoreRemove,{
+    return fetch.post(url.cartMoreRemove,{
       goodsArr
     })
   }

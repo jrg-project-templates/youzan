@@ -5,7 +5,7 @@ import './cart.css'
 import Vue from 'vue'
 import Velocity from 'velocity-animate'
 
-import Cart from './cartServer.js'
+import Cart from './cartService.js'
 import mixin from 'js/mixin.js'
 
 var app = new Vue({

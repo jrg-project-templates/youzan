@@ -19,7 +19,7 @@ class Address {
     return fetch.post(url.addressRemove,{id})
   }
   // 设为默认地址
-  static setDefault(){
+  static setDefault(id){
     return fetch.post(url.addressSetDefault,{id})
   }
 }

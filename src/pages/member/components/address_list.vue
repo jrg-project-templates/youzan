@@ -1,5 +1,5 @@
 <template>
-    <div class="container " style="min-height: 597px;">
+  <div class="container address" style="min-height: 597px;" v-cloak>
     <div class="block-list address-list section section-first js-no-webview-block" v-if="addressList && addressList.length">
       <a class="block-item js-address-item address-item "  
         v-for="list in addressList"
@@ -21,6 +21,12 @@
     </div>
   </div>
 </template>
+<style>
+  [v-cloak]{
+    display: none;
+  }
+</style>
+
 <script>
 import Address from './addressService.js'
 
@@ -40,7 +46,7 @@ export default {
       })
     },
     goToEdit(list){
-      this.$router.push({name: 'form',params: {type: 'update'},query: {instance:list}});
+      this.$router.push({name: 'form',params: {type: 'edit'},query: {instance:list}});
     },
     goToAdd(){
       this.$router.push({name: 'form',params: {type: 'add'}});

@@ -29,12 +29,14 @@
 
 <script>
 import Address from './addressService.js'
+import {mapState} from 'vuex'
 
 export default {
   computed:{
-    addressLists(){
-      return this.$store.state.addressLists;
-    }
+    // addressLists(){
+    //   return this.$store.state.addressLists;
+    // },
+    ...mapState(['addressLists'])
   },
   created(){
     this.$store.dispatch('getAddressList');

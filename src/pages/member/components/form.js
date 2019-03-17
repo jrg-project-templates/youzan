@@ -1,4 +1,5 @@
 import Address from './addressService.js'
+import {mapState} from 'vuex'
 
 export default {
   data(){
@@ -7,8 +8,11 @@ export default {
       name: '',
       tel: '',
       provinceValue: -1,
+      provinceName: '',
       cityValue: -1,
+      cityName: '',
       districtValue: -1,
+      districtName: '',
       isDefault: false,
       address: '',
       type: '',
@@ -18,6 +22,9 @@ export default {
       districtList: null,
       isInitValue: true
     }
+  },
+  computed:{
+    ...mapState(['addressLists'])
   },
   created(){
     this.type = this.$route.params.type;
@@ -30,38 +37,35 @@ export default {
       this.name = instance.name;
       this.tel = instance.tel;
       this.address = instance.address;
+      this.id = instance.id;
+      this.isDefault = instance.isDefault;
     }
   },
   methods:{
     save(){
-      let {name,tel,provinceValue,cityValue,districtValue,address} = this;
-      let data = {name,tel,provinceValue,cityValue,districtValue,address};
+      let {name,tel,provinceValue,provinceName,cityValue,cityName,districtValue,districtName,address} = this;
+      let data = {name,tel,provinceValue,provinceName,cityValue,cityName,districtValue,districtName,address};
       //进行数据校验
       if(!this.dataCheck(data)){
         return ;
       }
       //判断提交类型
       if(this.type === 'add'){
-        Address.add(data).then(res=>{
-          this.$router.go(-1);
-        })
+        this.$store.dispatch('addAction',{...data,isDefault:false});
       }else {
-        Address.update({id:this.id, isDefault:this.isDefault, ...data}).then(res=>{
-          this.$router.go(-1)
-        })
+        this.$store.dispatch('updateAction',{...data, id: this.id, isDefault:this.isDefault})
       }
     },
     remove(){
       if(window.confirm('确认删除这个地址？')){
-        Address.remove(this.id).then(res=>{
-          this.$router.go(-1);
-        })
+        this.$store.dispatch('removeAction',this.id);
       }
     },
     setDefault(){
-      Address.setDefault(this.id).then(res=>{
-        this.$router.go(-1)
-      })
+      // Address.setDefault(this.id).then(res=>{
+      //   this.$router.go(-1)
+      // })
+      this.$store.dispatch('setDefaultAction',this.id);
     },
     dataCheck(data){
       if(!data.name){
@@ -76,6 +80,12 @@ export default {
     }
   },
   watch: {
+    addressLists: {
+      handler(){
+        this.$router.go(-1);
+      },
+      deep: true
+    },
     provinceValue(val){
       if(val === -1){
         this.cityValue = -1;
@@ -85,6 +95,8 @@ export default {
       let list = this.addressData.list;
       let provinceIndex = list.findIndex(item => item.value === val);
       this.cityList = list[provinceIndex].children;
+      this.provinceName = provinceIndex > -1 ? list[provinceIndex].label : '';
+
 
       this.cityValue = -1;
 
@@ -101,6 +113,7 @@ export default {
       let list = this.cityList;
       let cityIndex = list.findIndex(item => item.value === val);
       this.districtList = list[cityIndex].children;
+      this.cityName = cityIndex > -1 ? list[cityIndex].label : '';
 
       this.districtValue = -1;
 
@@ -108,6 +121,11 @@ export default {
         this.districtValue = parseInt(this.instance.districtValue);
         this.isInitValue = false;
       }
+    },
+    districtValue(val){
+      let list = this.districtList;
+      let districtIndex = list.findIndex(item => item.value === val);
+      this.districtName = districtIndex > -1 ? list[districtIndex].label : '';
     }
   }
 }

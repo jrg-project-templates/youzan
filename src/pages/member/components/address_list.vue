@@ -31,13 +31,13 @@
 import Address from './addressService.js'
 
 export default {
-  data(){
-    return {
-      addressList: null
+  computed:{
+    list(){
+      return this.$store.state.addressList;
     }
   },
   created(){
-    this.getAddressList();
+    this.$store.dispatch(getAddressList);
   },
   methods:{
     getAddressList(){

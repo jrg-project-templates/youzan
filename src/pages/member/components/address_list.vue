@@ -1,8 +1,8 @@
 <template>
   <div class="container address" style="min-height: 597px;" v-cloak>
-    <div class="block-list address-list section section-first js-no-webview-block" v-if="addressList && addressList.length">
+    <div class="block-list address-list section section-first js-no-webview-block" v-if="addressLists && addressLists.length">
       <a class="block-item js-address-item address-item "  
-        v-for="list in addressList"
+        v-for="list in addressLists"
         :key = "list.id"
         :class="{'address-item-default': list.isDefault}"
         @click="goToEdit(list)"
@@ -11,7 +11,7 @@
         <p>{{list.provinceName}}{{list.cityName}}{{list.districtName}}{{list.address}}</p>
       </a>
     </div>
-    <div v-if="addressList && !addressList.length">
+    <div v-if="addressLists && !addressLists.length">
       暂无数据
     </div>
     <div class="block stick-bottom-row center">
@@ -32,19 +32,19 @@ import Address from './addressService.js'
 
 export default {
   computed:{
-    list(){
-      return this.$store.state.addressList;
+    addressLists(){
+      return this.$store.state.addressLists;
     }
   },
   created(){
-    this.$store.dispatch(getAddressList);
+    this.$store.dispatch('getAddressList');
   },
   methods:{
-    getAddressList(){
-      return Address.getList().then(res=>{
-        this.addressList = res.lists;
-      })
-    },
+    // getAddressList(){
+    //   return Address.getList().then(res=>{
+    //     this.addressList = res.lists;
+    //   })
+    // },
     goToEdit(list){
       this.$router.push({name: 'form',params: {type: 'edit'},query: {instance:list}});
     },

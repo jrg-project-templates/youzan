@@ -9,7 +9,7 @@ const store = new Vuex.Store({
   state: {
     addressLists: null
   },
-  multations: {
+  mutations: {
     init(state,lists){
       state.addressLists = lists
     }
@@ -17,7 +17,8 @@ const store = new Vuex.Store({
   actions: {
     getAddressList({commit}){
       Address.getList().then(res=>{
-        commit(res.lists)
+        // console.log(res.lists);
+        commit('init',res.lists)
       })
     }
   }

@@ -45,6 +45,11 @@
 
 <script>
 export default {
+  data(){
+    return {
+      transitionName : ''
+    }
+  },
   watch:{
     '$route'(to,from){
       const toDepth = to.path.split('/').length;

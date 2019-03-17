@@ -14,10 +14,10 @@
   .slide-left-leave-active {
     transition: all .8s ease;
   }
-  .slide-left-enter{
+  .slide-left-enter {
     transform: translateX(100%);
   }
-  .slide-left-leave-to{
+  .slide-left-leave-to {
     transform: translateX(-100%);
   }
   /* 过渡 后退 */
@@ -27,13 +27,12 @@
   .slide-right-leave-active {
     transition: all .8s ease;
   }
-  .slide-right-enter{
+  .slide-right-enter {
     transform: translateX(-100%);
   }
-  .slide-right-leave-to{
+  .slide-right-leave-to {
     transform: translateX(100%);
   }
-
   .address.container {
     position: absolute;
     left: 0;

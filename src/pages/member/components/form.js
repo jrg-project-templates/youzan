@@ -62,9 +62,6 @@ export default {
       }
     },
     setDefault(){
-      // Address.setDefault(this.id).then(res=>{
-      //   this.$router.go(-1)
-      // })
       this.$store.dispatch('setDefaultAction',this.id);
     },
     dataCheck(data){
@@ -96,7 +93,6 @@ export default {
       let provinceIndex = list.findIndex(item => item.value === val);
       this.cityList = list[provinceIndex].children;
       this.provinceName = provinceIndex > -1 ? list[provinceIndex].label : '';
-
 
       this.cityValue = -1;
 

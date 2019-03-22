@@ -30,10 +30,12 @@ new Vue({
     showMessage: false,
     isAddCart: false,
     goodsNumber: 1,
-    imageLists: null
+    imageLists: null,
+    goodsLists: null
   },
   created(){
     this.getDetails();
+    this.getLists();
   },
   methods: {
     getDetails(){
@@ -75,6 +77,11 @@ new Vue({
       this.imageLists =  lists.map((img,index) => {
         return {img,id: 'details_swiper'+index};
       });
+    },
+    getLists(){
+      axios.get(url.hotList,{}).then(res => {
+        this.goodsLists = res.data.lists;
+      })
     }
   },
   watch:{

@@ -26,6 +26,7 @@ var routes = [{
 }]
 
 var router = new VueRouter({
+  base: '/youzan/',
   routes
 })
 

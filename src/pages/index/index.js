@@ -24,18 +24,20 @@ new Vue({
     pageSize: 6,
     loading: false,
     allLoaded: false,
-    bannerLists: null
+    bannerLists: null,
+    pageLoading: true
   },
   created(){
-    this.getLists();
-    this.getBannerLists();
+    Promise.all([this.getLists(),this.getBannerLists()]).then(res=>{
+      this.pageLoading = false;
+    })
   },
   methods: {
     getLists(){
         if(this.allLoaded) return;
 
         this.loading = true;
-        axios.get(url.hotList,{
+        return axios.get(url.hotList,{
           pageNum: this.pageNum,
           pageSize: this.pageSize
         }).then(res => {
@@ -53,7 +55,7 @@ new Vue({
         })
     },
     getBannerLists(){
-      axios.get(url.bannerList).then(res=>{
+      return axios.get(url.bannerList).then(res=>{
         this.bannerLists = res.data.lists;
       })
     }

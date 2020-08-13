@@ -43,7 +43,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/youzan/',
+    assetsPublicPath: 'https://jrg-project-templates.github.io/youzan/dist',
 
     /**
      * Source Maps

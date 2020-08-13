@@ -22,7 +22,7 @@
       id: 'footer-01',
       name: '有赞',
       icon: 'icon-home',
-      href: '/youzan'
+      href: 'index.html'
     }, {
       id: 'footer-02',
       name: '分类',
